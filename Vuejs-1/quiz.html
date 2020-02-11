@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Vue.js 1	</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ message }}</h1>
+		<h2>{{ message2 }}</h2>
+		<h3>{{ message3 }}</h3>
+		<h4>{{ message4 }}</h4>
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el : '#app',
+			data : {
+				message: "Mu'tashim Billah", //STRING
+				message2:  22, //INTEGER
+				message3:  ['Web Programmer', 'Designer', 'Software Analysis'], //ARRAY
+				message4: {
+					1: 'Apa',
+					2: 'Kabar',
+					3: 'Kamu'
+				} //OBJECT
+			},
+			beforeCreate () {
+				console.log('before create: ' + 'message = ' + this.message)
+			},
+			created () {
+				console.log('created: ' + 'message = ' + this.message)
+			},
+			beforeMount () {
+				console.log('before mount: ' + 'el = ' + this.$el.textContent)
+			},
+			mounted () {
+				console.log('mounted: ' + 'el = ' + this.$el.textContent)
+			},
+			beforeUpdate () {
+				console.log('before update: ' + 'el = ' + this.$el.textContent)
+			},
+			updated () {
+				console.log('updated: ' + 'el = ' + this.$el.textContent)
+			},
+			beforeDestroy () {
+				console.log('before destroy')
+			},
+			destroyed () {
+				console.log('destroyed')
+			}
+		})
+
+		vm.$watch('message', function (newValue, oldValue) {
+			console.log('var message updated from ' + oldValue + ' to ' + newValue)
+		})
+
+		vm.message = "El Psy Congroo"
+		vm.$destroy()
+	</script>
+</body>
+</html>

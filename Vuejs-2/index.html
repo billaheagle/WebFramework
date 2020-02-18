@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Vue.js 2</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+	<style type="text/css">
+		.title {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1>{{message}}</h1>
+		<h1 v-once>{{message}}</h1>
+		<h1 v-html="message2"></h1>
+		<h1 v-bind:class="class_h1">{{message}}</h1>
+	</div>
+	<!-- ============================================= -->
+	<div id="app2"></div>
+	<!-- ============================================= -->
+	<div id="app3">
+		<h1>{{counter}}</h1>
+		<button onclick="vm.increment()"> Tambah </button>
+		<h1>{{fullName}}</h1>
+	</div>
+	<!-- ============================================= -->
+	<div id="app4">
+		<h1>normal : {{message}}</h1>
+		<h1>upper : {{message|upper}}</h1>
+		<h1>reverse : {{message|reverse}}</h1>
+		<h1>reverse : {{message|upper|reverse}}</h1>
+	</div>
+	<!-- ============================================= -->
+
+
+	<script type="text/javascript">
+		Vue.config.silent = true
+		var vm = new Vue ({
+			el : '#app',
+			data : {
+				message: "Hello World!",
+				message2: "<span style='color:red'>Hello World!</span>",
+				message3: "Testing template/render",
+				class_h1: "title",
+			},
+		})
+
+		var vm = new Vue ({
+			el : '#app2',
+			data : {
+				message: "Testing template/render",
+			},
+			//template : "<h1>{{message3}}</h1>",
+			render (createElement) {
+				return createElement('h1', this.message)
+			},
+		})
+
+		var vm = new Vue ({
+			el : '#app3',
+			data : {
+				firstName : "Mutashim",
+				lastName : "Billah",
+				counter : 0,
+			},
+			methods : {
+				increment() {
+					this.counter++;
+				}
+			},
+			computed : {
+				fullName : function() {
+					return this.firstName + ' ' + this.lastName;
+				}
+			},
+		})
+
+		var vm = new Vue ({
+			el : '#app4',
+			data : {
+				message : "El Psy Congroo",
+			},
+			filters : {
+				upper (text) {
+					return text.toUpperCase()
+				},
+				reverse (text) {
+					return text.split('').reverse().join('')
+				}
+			}
+		})
+	</script>
+</body>
+</html>

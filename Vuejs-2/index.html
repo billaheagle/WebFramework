@@ -58,25 +58,6 @@
 		})
 
 		var vm = new Vue ({
-			el : '#app3',
-			data : {
-				firstName : "Mutashim",
-				lastName : "Billah",
-				counter : 0,
-			},
-			methods : {
-				increment() {
-					this.counter++;
-				}
-			},
-			computed : {
-				fullName : function() {
-					return this.firstName + ' ' + this.lastName;
-				}
-			},
-		})
-
-		var vm = new Vue ({
 			el : '#app4',
 			data : {
 				message : "El Psy Congroo",
@@ -89,6 +70,25 @@
 					return text.split('').reverse().join('')
 				}
 			}
+		})
+
+		var vm = new Vue ({
+			el : '#app3',
+			data : {
+				firstName : "Mutashim",
+				lastName : "Billah",
+				counter : 0
+			},
+			methods : {
+				increment() {
+					this.counter++
+				}
+			},
+			computed : {
+				fullName : function() {
+					return this.firstName + ' ' + this.lastName;
+				}
+			},
 		})
 	</script>
 </body>

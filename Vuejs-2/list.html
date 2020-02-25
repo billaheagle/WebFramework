@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Vue.js 2</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="book in books">
+				{{book}}
+			</li>
+		</ul>
+		<br>
+		<li v-for="(book, index) in books">
+			{{index+1}}. {{book}}
+		</li>
+		<br>
+		<li v-for="value of bio">
+			{{value}}
+		</li>
+		<br>
+		<li v-for="(value, key) of bio">
+			{{key}} : {{value}}
+		</li>
+		<br>
+		<li v-for="(value, key, index) of bio">
+			{{index+1}}. {{key}} : {{value}}
+		</li>
+	</div>
+
+	<script type="text/javascript">
+		Vue.config.silent = true
+		var vm = new Vue ({
+			el : '#app',
+			data : {
+				books : [
+					'Java',
+					'C++',
+					'Laravel',
+					'VueJS',
+					'Python'
+				],
+				bio : {
+					nim: 1710130010,
+					name: 'MutashimBillah',
+					semester: 6,
+					matakuliah: 'Web Framework'
+				}
+			},
+		})
+	</script>
+</body>
+</html>

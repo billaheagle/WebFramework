@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Vue.js 2</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<form>
+			<input type="text" name="title" value="title" @input="title = $event.target.value" />
+			{{title}}
+		</form>
+	</div>
+	<br>
+	<div id="app2">
+		<form>
+			<input type="text" name="title" v-model="title" placeholder="masukkan judul" />
+			"{{title}}"
+			<br><br>
+			<textarea name="desc" v-model="desc" placeholder="masukkan deskripsi"></textarea>
+			{{desc}}
+		</form>
+	</div>
+	<br>	
+	<div id="app3">
+		<form>
+			Gender : <br>
+			<input type="radio" name="gender" v-model="gender" value="male">
+			<label for="male">Male</label><br>
+			<input type="radio" name="gender" v-model="gender" value="female">
+			<label for="female">Female</label><br>
+			<input type="radio" name="gender" v-model="gender" value="other">
+			<label for="other">Other</label><br>
+			Pilihan Gender : {{gender}}<br><br>
+			Prodi :
+			<select v-model="prodi" name="prodi">
+				<option>Prodi</option>
+				<option value="BM">BM</option>
+				<option value="BIS">BIS</option>
+				<option value="CS">CS</option>
+			</select><br>
+			Pilihan Prodi : {{prodi}}
+			<br><br>
+			Bahasa yang dikuasai :<br>
+			<input type="checkbox" name="bahasa1" v-model="bahasa" value="Java">
+			<label> I can use Java</label><br>
+			<input type="checkbox" name="bahasa2" v-model="bahasa" value="Php">
+			<label> I can use Php</label><br>
+			<input type="checkbox"  name="bahasa3" v-model="bahasa" value="Python">
+			<label> I can use Python</label><br>
+			Bahasa yang dikuasai : {{bahasa}} 
+		</form>
+	</div>
+	<br>
+
+
+	<script type="text/javascript">
+		Vue.config.silent = true
+		var vm = new Vue ({
+			el : '#app',
+			data : {
+				title: 'mastering',
+			},
+		})
+		var vm = new Vue ({
+			el : '#app2',
+			data : {
+				title: '',
+				desc: '',
+			},
+		})
+		var vm = new Vue ({
+			el : '#app3',
+			data : {
+				gender: '',
+				prodi: '',
+				bahasa: [],
+			},
+		})
+	</script>
+</body>
+</html>

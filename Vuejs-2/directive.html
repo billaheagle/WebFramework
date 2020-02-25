@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Vue.js 2</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{message}}</h1>
+		<h1 v-text="message"></h1>
+		<h1 v-show="displayMessage">{{message}}</h1>
+	</div>
+	<div id="app2">
+		<div v-if="nilai === 'A'">Sempurna</div>
+		<div v-else-if="nilai === 'B'">Bagus</div>
+		<div v-else-if="nilai === 'C'">Cukup</div>
+		<div v-else>Kurarng</div>
+	</div>
+	<div id="app3">
+		<button v-on:click="counter += 1">Counter</button>
+		<p>Button counter sudah diklik sebanyak {{counter}} kali</p>
+		<button v-on:click="info('Selamat Datang')">Informasi</button>
+	</div>
+	<div id="app4">
+		<img v-bind:src="imageSrc" width="20%">
+	</div>
+
+	<script type="text/javascript">
+		Vue.config.silent = true
+		var vm = new Vue ({
+			el : '#app',
+			data : {
+				message: "Aku Bahagia!",
+				nilai: "B",
+			},
+		})
+		var vm = new Vue ({
+			el : '#app2',
+			data : {
+				nilai: "B",
+			},
+		})
+		var vm = new Vue ({
+			el : '#app3',
+			data : {
+				counter: 0,
+			},
+			methods: {
+				info (text) {
+					alert(text)
+				}
+			}
+		})
+		var vm = new Vue ({
+			el : '#app4',
+			data : {
+				imageSrc: 'img.jpg',
+			},
+		})
+
+		setTimeout(()=>{
+			vm.imageSrc = 'img2.png'
+		}, 3000);
+	</script>
+</body>
+</html>

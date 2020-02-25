@@ -52,6 +52,13 @@
 		</form>
 	</div>
 	<br>
+	<br>
+	<div id="app4">
+		<input type="text" v-model="keyword" placeholder="ketikan kata kunci" />
+		<ul>
+			<li v-for="(book, index) of filterBooks" key="index">{{book}}</li>
+		</ul>
+	</div>
 
 
 	<script type="text/javascript">
@@ -80,6 +87,7 @@
 		var vm = new Vue ({
 			el : '#app4',
 			data : {
+				keyword : '',
 				books : [
 					'Java',
 					'C++',
@@ -90,10 +98,9 @@
 			},
 			computed : {
 				filterBooks() {
-					return.this.books.filter((book)=>{
-
-					} )
-					
+					return this.books.filter((book)=> {
+						return book.includes(this.keyword)
+					})
 				}
 			}
 		})

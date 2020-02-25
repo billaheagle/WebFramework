@@ -77,6 +77,26 @@
 				bahasa: [],
 			},
 		})
+		var vm = new Vue ({
+			el : '#app4',
+			data : {
+				books : [
+					'Java',
+					'C++',
+					'Laravel',
+					'VueJS',
+					'Python'
+				],
+			},
+			computed : {
+				filterBooks() {
+					return.this.books.filter((book)=>{
+
+					} )
+					
+				}
+			}
+		})
 	</script>
 </body>
 </html>

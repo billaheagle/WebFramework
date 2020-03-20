@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Cards/>
+    <Home/>
   </div>
 </template>
 
 <script>
-  import Cards from './Cards.vue'
+  import Home from './Home.vue'
   export default {
-    name:'cards',
+    name:'home',
     components: {
-      Cards
+      Home
     },
     data() {
       return {
